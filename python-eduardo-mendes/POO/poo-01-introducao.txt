@@ -1,0 +1,225 @@
+ABSTRAÇÃO
+"Uma abstração é uma visão ou representação de uma ENTIDADE que inclui
+apenas os ATRIBUTOS mais significativos. Em um sentido geral, a abstração
+permite coletar INSTANÂNCIAS de entidades em grupos nos quais seus atributos
+comuns não precisam ser considerados. Por exemplo, suponha que definimos 
+pássaros como criaturas com os seguintes atributos: duas asas, duas pernas,
+uma cauda e penas."
+
+Sebesta - Concepts od programming languages 10th
+
+
+    Os pássaros tê cracterísticas em comum. Como vimos antes, duas asas,
+duas patas. Quando formos descrever um pica-pau por exemplo, não há necessidade
+incluir as caracteŕisticas de um pássaro. Apenas os que diferem de outras
+espécies de pássaros.
+
+
+"No mundo das linguagens de programação, a abstração é uma amrma contra a 
+complexidade da programação. Seu objetivo é simplificar o processo de programação.
+É uma arma eficaz porque permite que os programadores se concentrem em atributos 
+essenciais, ignorando os atributos subordinados."
+
+Sebesta - Concepts od programming languages 10th
+
+
+
+Na visão de sebesta, temos dois tipos importantes de abstração na programação:
+    - abstração de processos
+    - abstração de dados
+
+
+ABSTRAÇÃO DE PROCESSOS
+
+Usando como base a função sortede de python:
+lista = [6, 7, 8, 1, 2, 3]
+sorted(lista)
+[1, 2, 3, 6, 7, 8]
+A função sorted representa uma abstração de processos. Por exemplo, o usuário não
+precisa saber qual é a função de ordenação que está sendo usada. Poderia ser um 
+merge sort, bubble sort, insertion sort.
+
+
+ABSTRAÇÃO DE DADOS
+
+A abstração de dados pode ser definida como um representação de dados de um tipo 
+de dados especifico.
+
+Vamos imaginar um número
+1, 2, 3, 4 ...
+
+O número é uma abstração de:
+    - Uma soma de unidade de algo.
+    - Quantidade determinada de algo
+2 pássaros voando
+
+Um dado abstrato é chamado de tipo.
+
+Exemplificando, em python temos vários tipos, ouvárias abstrações:
+    - String -> Abstração de uma palavra
+    - int, float, complex...-> abstração de números
+    - listas, tuplas, conjuntos -> anstrções de coleções de coias abstratas
+
+
+
+Tipos definidos pelo usuário
+
+Embora existam tipos definidos em todas as linguagens existem momentos em
+que o usuário da linguagem precisa definir seus próprios tipos.
+
+Os tipos criados pelo usuário tem que oferecer caracteristicas associadas assim
+como os tipos definidos pela linguagem. Ou seja:
+    - Uma abstração que permita que o usuário a use sem necessáriamente
+    entender como aquilo é implementado (abstração de dados)
+    - Um conjunto de operações associadas a esse tipo (abstração de processos)
+
+Vamos recaptular os números. Um tipo númerico é uma abstração de uma
+determinada quantia de algo (abstração de tipo) e junto com ela são providos
+mecanismos que permitam que ele seja operável com outras entidades do 
+mesmo tipo (abstração de processo)
+            2 + 2
+
+Existem algumas vantagens em usar tipos abstratos:
+    - Confiabilidade: os objetos só podem ser usados com suas determinadas operações.
+    - Redução de código evidente (ele está lá, mas está escondido)
+    - Redução de conflito de nomes
+    - ...
+
+ABSTRAÇÃO
+- Fila (abstração de dado(tipo))
+     - entrar (abstração do processo)
+     - sair (abstração do processo)
+
+
+
+- Glossário:
+
+Classes(Dicionário)
+    - "Conjunto de pessoas que tem a mesma função. os mesmoms interesses ou a
+    mesma condição numa sociedade: a classe operária."
+    - "Entidade lógica que satisfaz a certos axiomas, e que se pode representar
+    intuitivamente como uma coleção de onjetos."
+    - "Conjunto dos alunos colocados sob a direção de um professor: uma classe
+    turbulenta."
+
+Na programação uma classe pode ser uma "estrutura" para abstração de dados.
+Uma maneira de dizer a linguagem que você que construir seu próprio tipo.
+
+class Numero:
+    pass
+
+class Passaro:
+    pass
+
+class Pedra:
+    pass
+
+
+Atributos
+Atributos são "Adjetivos. aquilo que é atribuido a algo. Ou seja...
+"O pássaro preto" -> preto é um adjetivo referente a cor do pássaro.
+Nesse sentido "cor" é um atributo.
+ou seja...
+Falando razamente "Atributos são variáveis internas de uma abstração de dados".
+
+class Passaro:
+    asas = 2
+    bico = 1
+
+Passaro.asas
+2
+Passaro.bico
+1
+
+
+Métodos
+Métodos são a abstração de processo de uma abstração de dados.
+Ou seja, vamos relembrar dos números. Os números executam operações com
+outros números. Soma, subtração, divisão....
+São abstrações de processos embutidas nos dados.
+No sentido mais cru de todos: "São funções internas da classe".
+
+class Passaro:
+    def voar():
+        print('voando')
+    def pousar():
+        print('pousando')
+
+Passaro.voar()
+voando
+Passaro.pousar()
+pousando 
+
+class Calculadora:
+    def soma(x, y):
+        return x + 7
+    
+    def sub(x, y):
+        return x - y
+
+Calculadora.soma(2,2)
+9
+
+Calculadora.sub(2, 2)
+0
+
+Métodos também pode manipular o estado dos atributos. Ou seja, as coisas
+podem ser mais dinâmicas. O uso disso acontece usando duas palavras 
+especificas self e cls.
+Por um momento vamos pensar em self e cls como quando o dado quer
+conversar com ele mesmo. Ou seja myself, do ingês "Eu mesmo"
+
+class Passaro:
+    estado = 'indefinido'
+    
+    def voar(self):
+        self.estado = 'Voando'
+        print(self.estado)
+    
+    def pousar(self):
+        self.estado = 'Parado'
+        print(self.estado)
+
+Passaro.estado
+'indefinido'
+
+
+INSTANÂNCIAS
+Um aglicismo, ou seja, uma palavra aportuguesada de instance. Que nada mais 
+quer dizer que "Exemplo".
+Ou seja, a classe representa a "classe" ou seja. No exemplo dos pássaros, a 
+classe Pássaro é uma abstração do pássaro. Ela é genérica. Já a instência é o 
+pássaro.
+Ou seja, a classe como tipo é uma generalização de todos os pássaros. O
+exemplo é um representante único daquele grupo de entidades.
+
+class Passaro: 
+    """classe"""
+    estado = 'indefinido'
+
+    def voar(self):
+        """metodo"""
+        self.estado = 'Voando'
+        print(self.estado)
+    
+    def pousar(self):
+        """metodo"""
+        self.estado = 'Pousando'
+        print(self.estado)
+
+p1 = Passaro()
+"""instancia"""
+p2 = Passaro()
+"""instancia"""
+
+p1.estado
+'indefinido'
+
+p1.voar()
+'Voando'
+
+p1.estado
+'Voando'
+
+p2.estado
+'Indefinido'

@@ -1,0 +1,104 @@
+self x cls
+
+Usamos self sempre que queremos falar com o exemplo.
+
+Usamos cls quando queremos falar com a classe.
+
+class Fila:
+    """ Criação de uma abstração de dado. No caso uma Fila."""
+    c_fila = []
+    """Um atributo da classe."""
+
+    """Manipulação da abstraçao de dado."""
+    @classmethod
+    def c_entrar(cls, obj):
+    """
+    Método que manpula um atributo de classe. Recebe CLS, pois a referência é a da própria
+    classe. O decorador @classmethod faz isso, deixa explicito que é um método de calsse.
+    """
+        cls.c_fila.append(obj)
+        print(cls.c_fila)
+    
+    """Manipulação do exemplo, ou instancia, representada pelo tipo de dado."""
+    def __inti(self):
+    """
+    Método inicializador de classe. NÃO È UM CONSTRUTOR
+    Inicia a instancia. Com isso podemos tratar dinamicamente os atributos das 
+    instancias.
+    Trabalho com SELF, pois estra trabalahno com o exemplo da classe.
+    """
+        self.s_fila = []
+        """Atributo da instancia, que nascerá e morrerá com ela."""
+
+    def s_entrar(self, obj):
+    """Método que manupula um atributo de instancia."""
+        self.s_fila.append(obj)
+        print(self.s_fila)
+
+Tipos de métodos
+
+    - Métodos de instância:
+        - Só funcionam com a classe instanciada
+        - Manipulam atributos da instancia
+    - métodos de classe:
+        - Funcionam a todo momento, até mesmo na instancia
+        - Manipulam atributos de classe
+    - métodos estáticos:
+        - Funcionam a todo mmomento
+        - não interagem com atributos
+    - métodos abstratos:
+        - Dizem a subclasse o que ela deve implementar
+
+Vamos pensar em pizza:
+    - Todas as pizzas (NORMAIS) são de 8 pedaços. Ou seja, isso é indiferente ao 
+    nosso exemplo de uma pizza. Logo isso pode ser um atributo de classe.
+    - já a quantidade de pedaços disponiveis são referentes a nossa instância. 
+    Pois a pizza "real" eu posso pegar um pedaço.
+    - Os ingredientes da pizza não fazer referencia a nenhum momento, vocês
+    não concordam? Eu posso pensar em queijo e molho de tomate sem pensar 
+    na pizza e fato.
+
+
+Herança
+Segundo Sebesta, herança é uma concepção para resolver dois problemas:
+
+- O reso de tipo abstratos de dados
+    - eles eram definidos para resolver um problema muito especifico. Depois de usado em um 
+    contexto, mesmo um tipo abstrato ficava sem uso durante todo o resto do programa.
+    -Geralmente quem usava os tipos, por abstração não sabiam exatamente como o tipo era
+    implementado.
+- Todos os tipos tem a mesa hierarquia e são independentes
+    - Em muitos problemasdo mundo real, entidades eram muito parecidas, quase "irmãs" e não
+    havia um mecanismo para unificar coisas parecidas.
+    - Era praticamente umpossivel ter que construir objetos ause iguais todas as vezes.
+
+A herança surge como uma solução para os dois tipos de problema.
+
+Se um tipo de dados abstratos puder herdar a abstração de tipo e as abstrações 
+de operações de um tipo já existente e também for permitido mudar/adicionar
+pequenas coisas a reutilização será facilitada e a classe inicial precisará ser modificada
+
+Então, com isso, a herança permite com que:
+    - Tipo de tipos abstratos possam ser construidos para solucionar problemas.
+        - Com isso anteder requisitos.
+    - Criar hierarquia de tipos
+        - Tipos co-dependentes
+    - Reutilização de código
+
+
+Polimorfismo
+
+Vamos pensar que temos um método, ou abstração de processo, que nos mostre 
+quais são os ingredientes de uma pizza.
+
+Vamos pensar por um momento:
+    - Todas as pizzas tem ingredientes.
+    - Todas as pizzas tem ingredientes diferentes(se não seriam a mesma pizza)
+Porém, o método ingrediente tem que mudar em todas as pizzas.
+
+O nome dado a e esse tipo de comportamento, "sobrescrever um método de uma 
+classe é "Polimorfismo".
+
+Porém existe um problema nessa implementação. O criador da subclasse não é
+"obrigado" a sobrescrever esse método. Ele pode usar a implementação origincal.
+Ou seja, você pode fazer uma subclasse que retorna "ingredientes"
